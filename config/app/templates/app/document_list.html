@@ -1,21 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>텍스트마이닝</title>
+    <title>list</title>
+    <link rel="stylesheet" href="../../static/style.css">
 </head>
 <body>
-    <header>
-        <div style="margin:0 auto; width: 500px">
-            <h1>글 작성</h1>
-            <fieldset>
-                <input type="search" value="" class="btn btn-info btn-sm">
-                <div class="btn-group"><a href="{% url 'write' %}" class="btn btn-info">글 작성</a></div>
-            </fieldset>
-        </div>
-    </header>
+    <h1> list Page </h1>
+    <div class="btn-group"><a href="{% url 'write' %}" class="btn btn-info">create로 이동</a></div>
+
+
+    <form class="box">
+        <h1>기사 검색</h1>
+        <input type ="text" placeholder="Title...">
+        <input type ="submit" value="검색">
+    </form>
 </body>
 </html>

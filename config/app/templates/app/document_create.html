@@ -1,5 +1,13 @@
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="작성" class="btn btn-info btn-sm">
-</form>
+
+
+<body>
+    <header>
+        <div style="margin:0 auto; width: 500px">
+            <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="작성" class="btn btn-info btn-sm">
+            </form>
+        </div>
+    </header>
+</body>

@@ -9,8 +9,16 @@ body {
 form.box {
     width: 500px;
     position: absolute;
-    top:30%;
-    left:40%;
+    top:25%;
+    left:35%;
+    transfrom:translate(-50%,-50%);
+    text-align: center;
+}
+form.box1 {
+    width: 500px;
+    position: absolute;
+    top:44%;
+    left:25%;
     transfrom:translate(-50%,-50%);
     text-align: center;
 }
@@ -30,4 +38,8 @@ form.box input[type=submit] {
     border-radius:0 25px 25px 0;
     border:none;
     margin-left:-6px;
+}
+
+textarea::placeholder{
+font-weight:bold;
 }

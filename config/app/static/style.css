@@ -7,6 +7,23 @@ body {
     height: 100vh;
 }
 form.box {
+    width: 1920px;
+    position: absolute;
+    top:25%;
+    left:-2%;
+    transfrom:translate(-50%,-50%);
+    text-align: center;/*
+    background-color:pink;*/
+}
+form.boxContent {
+    width: 500px;
+    position: absolute;
+    top:41%;
+    left:28%;
+    transfrom:translate(-50%,-50%);
+    text-align: center;
+}
+form.box2 {
     width: 500px;
     position: absolute;
     top:25%;
@@ -14,18 +31,19 @@ form.box {
     transfrom:translate(-50%,-50%);
     text-align: center;
 }
-form.box1 {
-    width: 500px;
-    position: absolute;
-    top:44%;
-    left:25%;
-    transfrom:translate(-50%,-50%);
-    text-align: center;
-}
 form.box h1{
     font-weight:normal;
 }
+form.box2 h1{
+    font-weight:normal;
+}
 form.box input[type=text]   {
+    background-color:#fff;
+    width:640px;
+    padding:10px;
+    border-radius:0 0 0 0;
+}
+form.box2 input[type=text]   {
     background-color:#fff;
     width:350px;
     padding:10px;
@@ -35,11 +53,23 @@ form.box input[type=submit] {
     width:100px;
     background-color:orange;
     padding:10px;
+    border-radius:0 0 0 0;
+    border:none;
+    margin-left:-6px;
+}
+form.box2 input[type=submit] {
+    width:100px;
+    background-color:pink;
+    padding:10px;
     border-radius:0 25px 25px 0;
     border:none;
     margin-left:-6px;
 }
-
 textarea::placeholder{
 font-weight:bold;
+}
+
+textarea {
+resize:none;
+/*border:none;*/
 }

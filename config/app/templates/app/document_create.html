@@ -1,5 +1,22 @@
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="작성" class="btn btn-info btn-sm">
-</form>
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>기사 입력</title>
+    <link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+    <h1> 기사 입력</h1>
+    <div class="btn-group"><a href="{% url 'list' %}" class="btn btn-info">기사 검색으로 이동</a></div>
+
+    <form class="box">
+        <h1>기사 입력</h1>
+        <input type ="text" placeholder="기사 제목...">
+        <input type ="submit" value="제출">
+    </form>
+    <form class="box1">
+        <textarea cols="110" rows="25" placeholder="기사 내용..."></textarea>
+    </form>
+    </div>
+</body>
+</html>

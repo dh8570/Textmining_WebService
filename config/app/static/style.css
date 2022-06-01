@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    border: 1px solid red;
+    height: 100vh;
+}
+form.box {
+    width: 500px;
+    position: absolute;
+    top:25%;
+    left:35%;
+    transfrom:translate(-50%,-50%);
+    text-align: center;
+}
+form.box1 {
+    width: 500px;
+    position: absolute;
+    top:44%;
+    left:25%;
+    transfrom:translate(-50%,-50%);
+    text-align: center;
+}
+form.box h1{
+    font-weight:normal;
+}
+form.box input[type=text]   {
+    background-color:#fff;
+    width:350px;
+    padding:10px;
+    border-radius:25px 0 0 25px;
+}
+form.box input[type=submit] {
+    width:100px;
+    background-color:orange;
+    padding:10px;
+    border-radius:0 25px 25px 0;
+    border:none;
+    margin-left:-6px;
+}
+
+textarea::placeholder{
+font-weight:bold;
+}

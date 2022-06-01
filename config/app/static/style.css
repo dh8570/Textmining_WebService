@@ -10,7 +10,7 @@ form.box {
     width: 1920px;
     position: absolute;
     top:25%;
-    left:-2%;
+    left:-2.4%;
     transfrom:translate(-50%,-50%);
     text-align: center;/*
     background-color:pink;*/
@@ -51,7 +51,7 @@ form.box2 input[type=text]   {
 }
 form.box input[type=submit] {
     width:100px;
-    background-color:orange;
+    background-color:pink;
     padding:10px;
     border-radius:0 0 0 0;
     border:none;
@@ -72,4 +72,78 @@ font-weight:bold;
 textarea {
 resize:none;
 /*border:none;*/
+}
+
+div.blank {
+    /*background-color:gray;*/
+    width:1920px;
+    height:400px;
+}
+div.blank2 {
+    /*background-color:gray;*/
+    width:1920px;
+    height:200px;
+}
+section.board {
+    background-color:pink;
+    width:1004px;
+    height:400px;
+    margin-left:410px;
+}
+
+div.boardTop {
+    background-color:pink;
+    width:1004px;
+    height:50px;
+    border-width:0px 0px 1px 0px;
+    border-style:ridge;
+}
+div.boardBig1,div.boardBig2, div.boardBig3,div.boardBig4,div.boardBig5 {
+    width:1004px;
+    height:70px;
+    display:flex;
+    justify-content:space-between;
+}
+div.boardSmall{
+    width:502px;
+    height:70px;
+    border-width:1px 1px 1px 1px;
+    border-style:ridge;
+    display:flex;
+    justify-content:space-between;
+}
+div.boardSmall2{
+    width:502px;
+    height:70px;
+    border-width:1px 1px 0px 1px;
+    border-style:ridge;
+    display:flex;
+    justify-content:space-between;
+}
+
+div.boardTop:hover, form.box2 input[type=submit]:hover,form.box input[type=submit]:hover,div.boardSmall:hover,div.boardSmall2:hover,a.pageMoveSearch:hover, a.pageMoveInput:hover{
+background:orange;
+cursor:pointer;
+}
+div.pageMove{
+width:1920px;
+height:50px;
+display:flex;
+}
+a.pageMoveSearch, a.pageMoveInput{
+width:200px;
+height:50px;
+background-color:pink;
+font-size:30px;
+color:purple;
+text-decoration:none;
+text-align:center;
+border-width:1px;
+border-style:ridge;
+margin:10px;
+}
+a.pageMoveSelf{
+text-decoration:none;
+color:black;
+background-color:pink;
 }

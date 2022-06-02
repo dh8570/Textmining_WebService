@@ -6,14 +6,37 @@
     <link rel="stylesheet" href="../../static/style.css">
 </head>
 <body>
-    <h1> 기사 검색 </h1>
-    <div class="btn-group"><a href="{% url 'write' %}" class="btn btn-info">기사 입력으로 이동</a></div>
-
-
-    <form class="box">
-        <h1>기사 검색</h1>
-        <input type ="text" placeholder="기사 내용...">
-        <input type ="submit" value="검색">
-    </form>
+    <div>
+        <div class="pageMove">
+            <a href="{% url 'write' %}" class="pageMoveInput">입력</a>
+            <a href="{% url 'list' %}" class="pageMoveSearch">검색</a>
+        </div>
+        <form class="box2">
+            <a href="{% url 'list' %}" class="pageMoveSelf"><h1>기사 검색</h1></a>
+            <input type ="text" placeholder="기사 내용...">
+            <input type ="submit" value="검색">
+        </form>
+    </div>
+    <div class="blank"></div>
+    <section class="board">
+        <div class="boardTop">게시글</div>
+        <div class="boardBig1">
+            <div class="boardSmall">1</div>
+            <div class="boardSmall">6</div>
+        </div>
+        <div class="boardBig2">
+            <div class="boardSmall">2</div>
+            <div class="boardSmall">7</div></div>
+        <div class="boardBig3">
+            <div class="boardSmall">3</div>
+            <div class="boardSmall">8</div></div>
+        <div class="boardBig4">
+            <div class="boardSmall">4</div>
+            <div class="boardSmall">9</div></div>
+        <div class="boardBig5">
+            <div class="boardSmall2">5</div>
+            <div class="boardSmall2">10</div></div>
+    </section>
+    <div class="blank2"></div>
 </body>
 </html>

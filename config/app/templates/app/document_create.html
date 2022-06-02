@@ -6,17 +6,20 @@
     <link rel="stylesheet" href="../../static/style.css">
 </head>
 <body>
-    <h1> 기사 입력</h1>
-    <div class="btn-group"><a href="{% url 'list' %}" class="btn btn-info">기사 검색으로 이동</a></div>
-
+    <div class="pageMove">
+            <a href="{% url 'write' %}" class="pageMoveInput">입력</a>
+            <a href="{% url 'list' %}" class="pageMoveSearch">검색</a>
+    </div>
     <form class="box">
-        <h1>기사 입력</h1>
+            <a href="{% url 'write' %}" class="pageMoveSelf"><h1>기사 입력</h1></a>
         <input type ="text" placeholder="기사 제목...">
         <input type ="submit" value="제출">
     </form>
-    <form class="box1">
-        <textarea cols="110" rows="25" placeholder="기사 내용..."></textarea>
+    <form class="boxContent">
+        <textarea cols="106" rows="30" placeholder=" 기사 내용..."></textarea>
     </form>
-    </div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="blank2"></div>
 </body>
 </html>

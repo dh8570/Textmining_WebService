@@ -15,23 +15,35 @@
         {% csrf_token %}
         <h1>기사 입력</h1>
         <div>
-            <input type ="text" placeholder="기사 제목..." name="title" value="{{ title }}">
-            <input type="submit" value="제출" formaction="" formmethod="post">
+            <input type ="text" placeholder="기사 제목..." name="title" value="{{ title }}" required />
+            <input type="submit" value="제출" formaction="/success/" formmethod="get" onclick="set_att()" />
         </div>
         <p></p>
         <div>
-            <input type="text" placeholder="자동 카테고리 분류기" name="category" value="{{ category }}"><p></p>
-            <input type="text" placeholder="자동 태깅" name="tags" value="{{ tags }}">
+            <input id="category" type="text" placeholder="자동 카테고리 분류기" name="category" value="{{ category }}" />
+            <p></p>
+            <input id="tags" type="text" placeholder="자동 태깅" name="tags" value="{{ tags }}" />
         </div>
         <p></p>
-        <input type="submit" value="분류 시작" formaction="/write/get/" formmethod="get">
+        <input type="submit" value="분류 시작" formaction="/write/get/" formmethod="get" onclick="remove_att()" />
         <div>
-            <textarea cols="106" rows="30" placeholder=" 기사 내용..." name="document">{{ document }}</textarea>
+            <textarea cols="106" rows="30" placeholder=" 기사 내용..." name="document" required>{{ document }}</textarea>
         </div>
     </form>
+    <script>
+        function set_att() {
+            document.getElementById('category').setAttribute('required', true);
+            document.getElementById('tags').setAttribute('required', true);
+        }
 
+        function remove_att() {
+            document.getElementById('category').removeAttribute('required');
+            document.getElementById('tags').removeAttribute('required');
+        }
+    </script>
     <div class="blank"></div>
     <div class="blank"></div>
     <div class="blank2"></div>
+
 </body>
 </html>

@@ -6,7 +6,6 @@ import csv
 from tensorflow.keras.models import load_model
 from django.shortcuts import render
 import pandas as pd
-
 import os
 
 

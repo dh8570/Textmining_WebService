@@ -51,10 +51,32 @@ form.box input[type=text]   {
     border-radius:0 0 0 0;
 }
 
-form.box input[type=submit] {
+form.box input.save {
     width:100px;
     background-color:pink;
     padding:12px;
+    border-radius:0 0 0 0;
+    border:none;
+    margin-left:-6px;
+}
+form.box input.category {
+    width:100px;
+    background-color:#C4B4E1;
+    position:absolute;
+    top:14.7%;
+    left:70.2%;
+    padding:14px;
+    border-radius:0 0 0 0;
+    border:none;
+    margin-left:-6px;
+}
+form.box input.tag {
+    width:100px;
+    background-color:#648CFF;
+    position:absolute;
+    top:22%;
+    left:70.2%;
+    padding:14px;
     border-radius:0 0 0 0;
     border:none;
     margin-left:-6px;
@@ -137,7 +159,8 @@ div.boardSmall2 {
     justify-content:space-between;
 }
 
-div.boardTop:hover, form.box2 input[type=submit]:hover,form.box input[type=submit]:hover,div.boardSmall:hover,div.boardSmall2:hover,a.pageMoveSearch:hover, a.pageMoveInput:hover {
+div.boardTop:hover, form.box2 input[type=submit]:hover,form.box input[type=submit]:hover,div.boardSmall:hover,
+div.boardSmall2:hover,a.pageMoveSearch:hover, a.pageMoveInput:hover,form.box input[type=category]:hover,form.box input[type=tag]:hover {
     background:orange;
     cursor:pointer;
 }

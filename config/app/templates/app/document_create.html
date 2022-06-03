@@ -2,22 +2,24 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>기사 입력</title>
+    <title>기사 작성</title>
     <link rel="stylesheet" href="../../static/style.css">
 </head>
 <body>
     <div class="pageMove">
-            <a href="{% url 'write' %}" class="pageMoveInput">입력</a>
+            <a href="{% url 'write' %}" class="pageMoveInput">작성</a>
             <a href="{% url 'list' %}" class="pageMoveSearch">검색</a>
     </div>
     <form class="box">
         <div>
             <div>
-                <a href="{% url 'write' %}" class="pageMoveSelf"><h1>기사 입력</h1></a>
+                <a href="{% url 'write' %}" class="pageMoveSelf"><h1>기사 작성</h1></a>
             </div>
             <div>
                 <input type ="text" placeholder="기사 제목...">
-                <input type ="submit" value="제출">
+                <input type ="submit" class = "save" value="저장">
+                <input type ="submit" class = "category" value="카테고리">
+                <input type ="submit" class = "tag" value="태그">
             </div>
         </div>
         <textarea cols="106" rows="30" placeholder=" 기사 내용..."></textarea>

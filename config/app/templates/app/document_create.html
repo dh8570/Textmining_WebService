@@ -11,11 +11,15 @@
             <a href="{% url 'list' %}" class="pageMoveSearch">검색</a>
     </div>
     <form class="box">
-            <a href="{% url 'write' %}" class="pageMoveSelf"><h1>기사 입력</h1></a>
-        <input type ="text" placeholder="기사 제목...">
-        <input type ="submit" value="제출">
-    </form>
-    <form class="boxContent">
+        <div>
+            <div>
+                <a href="{% url 'write' %}" class="pageMoveSelf"><h1>기사 입력</h1></a>
+            </div>
+            <div>
+                <input type ="text" placeholder="기사 제목...">
+                <input type ="submit" value="제출">
+            </div>
+        </div>
         <textarea cols="106" rows="30" placeholder=" 기사 내용..."></textarea>
     </form>
     <div class="blank"></div>

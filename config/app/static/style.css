@@ -7,7 +7,18 @@ body {
     border: 1px solid red;
     height: 100vh;
 }
-
+p.categoryPrint {
+    position: absolute;
+    top:14.2%;
+    left:77%;
+    font-size:15px;
+}
+p.tagPrint {
+    position: absolute;
+    top:21.5%;
+    left:77%;
+    font-size:15px;
+}
 form.box {
     width: 1920px;
     position: absolute;
@@ -63,7 +74,7 @@ form.box input.category {
     width:100px;
     background-color:#C4B4E1;
     position:absolute;
-    top:14.7%;
+    top:14.6%;
     left:70.2%;
     padding:14px;
     border-radius:0 0 0 0;

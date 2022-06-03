@@ -1,5 +1,5 @@
-from django.shortcuts import render
 import sqlite3
+from .list import post_doc
 
 
 def insert_data(insert_set):
@@ -48,4 +48,4 @@ def get(request):
     insert_data(insert_set)
     search_data()
 
-    return render(request, './app/document_list.html')
+    return post_doc(request)

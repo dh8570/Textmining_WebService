@@ -10,14 +10,26 @@
             <a href="{% url 'write' %}" class="pageMoveInput">입력</a>
             <a href="{% url 'list' %}" class="pageMoveSearch">검색</a>
     </div>
+
     <form class="box">
-            <a href="{% url 'write' %}" class="pageMoveSelf"><h1>기사 입력</h1></a>
-        <input type ="text" placeholder="기사 제목...">
-        <input type ="submit" value="제출">
+        {% csrf_token %}
+        <h1>기사 입력</h1>
+        <div>
+            <input type ="text" placeholder="기사 제목..." name="title" value="{{ title }}">
+            <input type="submit" value="제출" formaction="" formmethod="post">
+        </div>
+        <p></p>
+        <div>
+            <input type="text" placeholder="자동 카테고리 분류기" name="category" value="{{ category }}"><p></p>
+            <input type="text" placeholder="자동 태깅" name="tags" value="{{ tags }}">
+        </div>
+        <p></p>
+        <input type="submit" value="분류 시작" formaction="/write/get/" formmethod="get">
+        <div>
+            <textarea cols="106" rows="30" placeholder=" 기사 내용..." name="document">{{ document }}</textarea>
+        </div>
     </form>
-    <form class="boxContent">
-        <textarea cols="106" rows="30" placeholder=" 기사 내용..."></textarea>
-    </form>
+
     <div class="blank"></div>
     <div class="blank"></div>
     <div class="blank2"></div>

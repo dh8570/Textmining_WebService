@@ -10,6 +10,6 @@ class AppListView(ListView):
 
 class AppCreateView(CreateView):
     model = Document
-    fields = ['text']
+    fields = ['id', 'title', 'category', 'tags', 'document']
     success_url = reverse_lazy('list')
     template_name_suffix = '_create'

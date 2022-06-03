@@ -8,7 +8,7 @@ def insert_data(insert_set):
     # connecting cursor
     cursor = conn.cursor()
 
-    cursor.execute("INSERT INTO APP_DOCUMENT(id, title, category, tags, document) VALUES(?, ?, ?, ?, ?)", insert_set)
+    cursor.execute("INSERT INTO APP_DOCUMENT(id, category, document, title, tags) VALUES(?, ?, ?, ?, ?)", insert_set)
     conn.close()
 
 
@@ -43,9 +43,9 @@ def get(request):
     tags = request.GET.get('tags')
 
     index = get_data_amount()
-    insert_set = [index, title, category, tags, doc]
+    insert_set = [index, category, doc, title, tags]
 
-    search_data(insert_set)
+    insert_data(insert_set)
     search_data()
 
     return render(request, './app/document_list.html')

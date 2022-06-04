@@ -4,6 +4,8 @@ from .python.list import post_doc
 from .python.parse import get_and_processing
 from .python.success import get
 from .python.recent_post import recent_post_output
+from .python.search import search_processing
+from .python.search_post import search_post_output
 
 urlpatterns = [
     # as_view() : 클래스형 뷰를 내부적으로 함수형 뷰로 처리
@@ -13,4 +15,6 @@ urlpatterns = [
     path('write/get/', get_and_processing),
     path('success/', get),
     path('recent/post/', recent_post_output),
+    path('search/', search_processing),
+    path('search/post/', search_post_output),
 ]

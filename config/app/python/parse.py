@@ -6,6 +6,8 @@ import csv
 from tensorflow.keras.models import load_model
 from django.shortcuts import render
 import pandas as pd
+import gzip
+import pickle
 import os
 
 
@@ -56,18 +58,10 @@ class_dic = {
 
 
 def tokenizer(data):
-    vocab_size = 61519
     max_len = 400
 
-    tok = Tokenizer(vocab_size, oov_token="OOV")
-    train_data = []
-
-    with open('./app/dataset/train_data.csv', 'r', encoding="UTF-8") as f:
-        reader = csv.reader(f)
-        for i, line in enumerate(reader):
-            train_data.append(line)
-
-    tok.fit_on_texts(train_data)
+    with gzip.open('./app/dataset/tokenizer_for_category.pickle', 'rb') as f:
+        tok = pickle.load(f)
     data = tok.texts_to_sequences(data)
     pre_data = pad_sequences(data, maxlen=max_len)
 
@@ -75,8 +69,9 @@ def tokenizer(data):
 
 
 def preprocessing(text):
-    text = re.sub('[\W]', ' ', str(text))
-    text = re.sub('[\n|\t]', ' ', text)
+    text = re.sub('\W', ' ', str(text))
+    text = re.sub('\n|\t', ' ', text)
+    text = re.sub('\s+', ' ', text)
     text = text.strip()
 
     mecab = Mecab()
@@ -90,6 +85,7 @@ def tagging(prep_list):
     word_list = pd.Series(prep_list)
     freq_words = word_list.value_counts().head(5)
     return freq_words
+
 
 def get_and_processing(request):
     title = request.GET.get('title')

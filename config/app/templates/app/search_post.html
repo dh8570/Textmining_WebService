@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>최신 업로드 기사</title>
+    <link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+    <div class="pageMove">
+            <a href="/search/?keyword=" class="pageMoveInput">이전</a>
+    </div>
+
+    {% csrf_token %}
+    <h2>{{ title }}</h2>
+    <p></p>
+    <div>{{ document }}</div>
+    <p></p>
+    <h3>[{{ category }}]</h3>
+    <p></p>
+    <h3>{{ tags }}</h3>
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="blank2"></div>
+
+</body>
+</html>

@@ -17,7 +17,6 @@ def recent_post_output(request):
     idx = int(list(dict(idx).values())[0][0])
     row = get_row(idx)
 
-    print(row)
     context = {
         'title': row[3],
         'document': row[2],

@@ -106,9 +106,11 @@ section.board {
 div.boardTop {
     background-color:pink;
     width:1004px;
-    height:50px;
+    height:35px;
     border-width:0px 0px 1px 0px;
     border-style:ridge;
+    text-align:center;
+    padding-top: 15px;
 }
 div.boardBig1,div.boardBig2, div.boardBig3,div.boardBig4,div.boardBig5 {
     width:1004px;
@@ -123,6 +125,7 @@ div.boardSmall{
     border-style:ridge;
     display:flex;
     justify-content:space-between;
+    box-sizing:content-box;
 }
 div.boardSmall2{
     width:502px;
@@ -160,12 +163,15 @@ color:black;
 background-color:pink;
 }
 .bar {
-        width: 500px;
+        width: 600px;
         height: 50px;
         border-radius: 10px;
         background-color: #b3b3b3;
         color: white;
         text-align: center;
+        position:absolute;
+        margin-left:600px;
+        margin-top:330px;
     }
     .fifty {
         width: 50%;

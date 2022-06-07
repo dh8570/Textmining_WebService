@@ -1,8 +1,6 @@
 from eunjeon import Mecab
 import re
-from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-import csv
 from tensorflow.keras.models import load_model
 from django.shortcuts import render
 import pandas as pd

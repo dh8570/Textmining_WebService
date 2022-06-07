@@ -14,7 +14,6 @@ def get_row(index_id):
 
 def search_post_output(request):
     index_id = request.GET.get('id')
-    print(index_id)
     post_data = get_row(index_id)
 
     context = {

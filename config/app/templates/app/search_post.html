@@ -2,12 +2,17 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>최신 업로드 기사</title>
+    <title>기사 내용</title>
     <link rel="stylesheet" href="../../static/style.css">
+    <script>
+        function back_site() {
+            history.go(-1);
+        }
+    </script>
 </head>
 <body>
     <div class="pageMove">
-            <a href="/search/?keyword=" class="pageMoveInput">이전</a>
+            <a class="pageMoveInput" onclick="back_site();">«</a>
     </div>
 
     {% csrf_token %}

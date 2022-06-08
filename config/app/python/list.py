@@ -7,9 +7,12 @@ def search_data():
     conn = sqlite3.connect('./db.sqlite3', isolation_level=None)
     cursor = conn.cursor()
 
-    cursor.execute("SELECT title, category, tags FROM APP_DOCUMENT ORDER BY id DESC LIMIT 10")
+    cursor.execute("SELECT id, title, category, tags FROM APP_DOCUMENT ORDER BY id DESC LIMIT 10")
     rows = cursor.fetchall()
     conn.close()
+
+    for i, row in enumerate(rows):
+        rows[i] = list(row)
 
     return rows
 
@@ -56,14 +59,17 @@ def post_doc(request):
     title_list = search_data()
     context = {}
 
-    list_len = int(len(title_list)) + 1
-    for i in range(1, list_len):
-        context['list' + str(i)] = title_list[i-1]
+    list_len = int(len(title_list))
+
+    context['post_len'] = list_len
+    context['post_list'] = title_list
 
     key, value = progress_data()
     category_len = int(len(key))
     context['progressbar_key'] = key
     context['progressbar_value'] = value
     context['progressbar_len'] = category_len
+    print(title_list)
+    print(list_len)
 
     return render(request, './app/document_list.html', context)

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>검색 결과</title>
+    <link rel="stylesheet" href="../../static/style.css">
+    <script>
+        function create_post(post_len, post_list) {
+            let postMother = document.getElementById('postMother');
+            for (var i = 0; i < post_len; i++) {
+                let new_button = document.createElement('button');
+                new_button.setAttribute('class', 'boardBig');
+                new_button.setAttribute('name', 'id');
+                new_button.setAttribute('value', post_list[i][0]);
+                new_button.innerHTML =
+                    '<div>' + post_list[i][1] + '</div>' +
+                    '<div>' + post_list[i][2] + '</div>' +
+                    '<div>' + post_list[i][3] + '</div>';
+                postMother.appendChild(new_button);
+            }
+        }
+
+        function back_site() {
+            history.go(-1);
+        }
+    </script>
+</head>
+<body onload="create_post({{ post_amount }}, {{ post_list }});">
+    <div>
+        <div class="pageMove">
+            <a class="pageMoveSearch" onclick="back_site();">«</a>
+        </div>
+        <form class="box2">
+            <h1>기사 검색</h1>
+            <input type ="text" placeholder="기사 내용..." value="{{ query }}" name="keyword">
+            <input type ="submit" value="검색" formaction="/search/" formmethod="get">
+        </form>
+    </div>
+    <div class="blank"></div>
+
+    <form action="/search/post/" method="get">
+        <section class="board" id="postMother">
+            <div class="boardTop">게시글</div>
+        </section>
+    </form>
+    <div class="blank2"></div>
+</body>
+</html>

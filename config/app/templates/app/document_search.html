@@ -4,8 +4,66 @@
     <meta charset="UTF-8"/>
     <title>검색 결과</title>
     <link rel="stylesheet" href="../../static/style.css">
+    <script>
+        // progressbar 함수
+        function create_progressbar(bar_len, bar_key, bar_value) {
+            let progressMother = document.getElementById('progressMother');
+            if (bar_len == 1) {
+                let new_div = document.createElement('div');
+                new_div.setAttribute('class', 'fifty');
+                new_div.style.width = bar_value + '%';
+                new_div.innerHTML = '<div>' + bar_key[0] + '</div>' + '<div>' + parseInt(bar_value[0]) + '%</div>';
+                progressMother.appendChild(new_div)
+            } else {
+                for (var i = 0; i < bar_len; i++) {
+                    let new_div = document.createElement('div');
+                    if (i == 0) {
+                        new_div.setAttribute('class', 'fifty');
+                    } else if (i == bar_len-1) {
+                        new_div.setAttribute('class', 'ten');
+                    } else {
+                        new_div.setAttribute('class', 'twentyfive');
+                    }
+                    new_div.style.width = bar_value[i] + '%';
+                    new_div.innerHTML = '<div>' + bar_key[i] + '</div>' + '<div>' + parseInt(bar_value[i]) + '%</div>';
+                    progressMother.appendChild(new_div)
+                }
+            }
+        }
+
+        // 게시물 생성
+        function create_post(post_len, post_list) {
+            let postMother = document.getElementById('postMother');
+            for (var i = 0; i < post_len; i++) {
+                let new_button = document.createElement('button');
+                new_button.setAttribute('class', 'boardBig');
+                new_button.setAttribute('name', 'id');
+                new_button.setAttribute('value', post_list[i][0]);
+                new_button.innerHTML =
+                    '<div>' + post_list[i][1] + '</div>' +
+                    '<div>' + post_list[i][2] + '</div>' +
+                    '<div>' + post_list[i][3] + '</div>';
+                postMother.appendChild(new_button);
+            }
+        }
+
+
+        // 카테고리 버튼 생성
+        function create_category_button(category_len, category_list) {
+            let categoryMother = document.getElementById('categoryMother');
+            for (var i = 0; i < category_len; i++) {
+                let new_input = document.createElement('input');
+                new_input.setAttribute('type', 'submit');
+                new_input.setAttribute('name', 'category');
+                new_input.setAttribute('value', category_list[i]);
+                categoryMother.appendChild(new_input);
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="create_progressbar({{ progressbar_len }}, {{ progressbar_key }}, {{ progressbar_value }});
+            create_category_button({{ progressbar_len }}, {{ progressbar_key }});
+            create_post({{ post_len }}, {{ post_list }});">
     <div>
         <div class="pageMove">
             <a href="{% url 'list' %}" class="pageMoveSearch">홈</a>
@@ -16,110 +74,22 @@
             <input type ="submit" value="검색" formaction="/search/" formmethod="get">
         </form>
     </div>
+    <div>
+        <div class="bar" id="progressMother"></div>
+    </div>
+
+
     <div class="blank"></div>
+    <div>
+        <form action="/search/category/" method="get">
+            <section id="categoryMother"></section>
+        </form>
+    </div>
+
+
     <form action="/search/post/" method="get">
-        <section class="board">
+        <section class="board" id="postMother">
             <div class="boardTop">게시글</div>
-            <button class="boardBig1" name="id" value="{{ result1.0 }}">
-                <div>{{ result1.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result1.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result1.3 }}">
-            </button>
-            <button class="boardBig2" name="id" value="{{ result2.0 }}">
-                <div>{{ result2.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result2.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result2.3 }}">
-            </button>
-            <button class="boardBig3" name="id" value="{{ result3.0 }}">
-                <div>{{ result3.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result3.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result3.3 }}">
-            </button>
-            <button class="boardBig4" name="id" value="{{ result4.0 }}">
-                <div>{{ result4.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result4.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result4.3 }}">
-            </button>
-            <button class="boardBig5" name="id" value="{{ result5.0 }}">
-                <div>{{ result5.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result5.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result5.3 }}">
-            </button>
-            <button class="boardBig6" name="id" value="{{ result6.0 }}">
-                <div>{{ result6.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result6.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result6.3 }}">
-            </button>
-            <button class="boardBig7" name="id" value="{{ result7.0 }}">
-                <div>{{ result7.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result7.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result7.3 }}">
-            </button>
-            <button class="boardBig8" name="id" value="{{ result8.0 }}">
-                <div>{{ result8.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result8.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result8.3 }}">
-            </button>
-            <button class="boardBig9" name="id" value="{{ result9.0 }}">
-                <div>{{ result9.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result9.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result9.3 }}">
-            </button>
-            <button class="boardBig10" name="id" value="{{ result10.0 }}">
-                <div>{{ result10.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result10.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result10.3 }}">
-            </button>
-            <button class="boardBig11" name="id" value="{{ result11.0 }}">
-                <div>{{ result11.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result11.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result11.3 }}">
-            </button>
-            <button class="boardBig12" name="id" value="{{ result12.0 }}">
-                <div>{{ result12.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result12.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result12.3 }}">
-            </button>
-            <button class="boardBig13" name="id" value="{{ result13.0 }}">
-                <div>{{ result13.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result13.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result13.3 }}">
-            </button>
-            <button class="boardBig14" name="id" value="{{ result14.0 }}">
-                <div>{{ result14.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result14.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result14.3 }}">
-            </button>
-            <button class="boardBig15" name="id" value="{{ result15.0 }}">
-                <div>{{ result15.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result15.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result15.3 }}">
-            </button>
-            <button class="boardBig16" name="id" value="{{ result16.0 }}">
-                <div>{{ result16.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result16.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result16.3 }}">
-            </button>
-            <button class="boardBig17" name="id" value="{{ result17.0 }}">
-                <div>{{ result17.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result17.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result17.3 }}">
-            </button>
-            <button class="boardBig18" name="id" value="{{ result18.0 }}">
-                <div>{{ result18.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result18.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result18.3 }}">
-            </button>
-            <button class="boardBig19" name="id" value="{{ result19.0 }}">
-                <div>{{ result19.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result19.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result19.3 }}">
-            </button>
-            <button class="boardBig20" name="id" value="{{ result20.0 }}">
-                <div>{{ result20.1 }}</div>
-                <input class="boardSmall" type="submit" name="category" value="{{ result20.2 }}">
-                <input class="boardSmall" type="submit" name="tags" value="{{ result20.3 }}">
-            </button>
         </section>
     </form>
     <div class="blank2"></div>

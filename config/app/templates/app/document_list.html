@@ -16,7 +16,7 @@
                 let new_div = document.createElement('div');
                 new_div.setAttribute('class', 'fifty');
                 new_div.style.width = bar_value + '%';
-                new_div.innerHTML = '<div>' + bar_key[0] + '</div>' + '<div>' + parseInt(bar_value[0]) + '%</div>';
+                new_div.innerHTML = '<font size="1">' + bar_key[0] + '</font>' + '<div>' + parseInt(bar_value[0]) + '%</div>';
                 progressMother.appendChild(new_div)
             } else {
                 for (var i = 0; i < bar_len; i++) {
@@ -29,14 +29,39 @@
                         new_div.setAttribute('class', 'twentyfive');
                     }
                     new_div.style.width = bar_value[i] + '%';
-                    new_div.innerHTML = '<div>' + bar_key[i] + '</div>' + '<div>' + parseInt(bar_value[i]) + '%</div>';
+                    new_div.innerHTML = '<font size="1">' + bar_key[i] + '</font>' + '<div>' + parseInt(bar_value[i]) + '%</div>';
                     progressMother.appendChild(new_div)
                 }
             }
         }
+
+        // 게시물 생성
+        function create_post(post_len, post_list) {
+            let postMother;
+            for(var i = 0; i < post_len; i++) {
+                let title_len = post_list[i][1].length;
+                if(title_len > 40) {
+                    post_list[i][1] = post_list[i][1].substr(0, 40) + '....';
+                }
+                postMother = document.getElementById('postMother1');
+                let new_button = document.createElement('button');
+                new_button.setAttribute('class', 'boardSmall');
+                new_button.setAttribute('name', 'id');
+                new_button.setAttribute('value', post_list[i][0]);
+                new_button.innerHTML =
+                    '<div class="smallTitle">' +
+                        '<h4>' + (i+1) + '</h4>' +
+                        '<div class="categoryList">[' + post_list[i][2] + ']</div>' +
+                        '<div class="titleList">' + post_list[i][1] + '</div>' +
+                    '</div>' +
+                    '<div class="tagList">' + post_list[i][3] + '</div>';
+                postMother.appendChild(new_button);
+            }
+        }
     </script>
 </head>
-<body onload="create_progressbar({{ progressbar_len }}, {{ progressbar_key }}, {{ progressbar_value }});">
+<body onload="create_progressbar({{ progressbar_len }}, {{ progressbar_key }}, {{ progressbar_value }});
+                create_post({{ post_len }}, {{ post_list }});">
     <div>
         <div class="pageMove">
             <a href="{% url 'write' %}" class="pageMoveInput">입력</a>
@@ -53,98 +78,10 @@
     </div>
 
     <div class="blank"></div>
-    <form action="/recent/post/" method="get">
-        <section class="board">
+    <form action="/search/post/" method="get">
+        <section class="board" id="motherTag">
             <div class="boardTop"> 게시글 </div>
-            <div class="boardBig1">
-                <button class="boardSmall" name="btn1" value="1">
-                    <div class="smallTitle">
-                        <h4>1</h4>
-                        <div class="categoryList">[{{ list1.1 }}]</div>
-                        <div class="titleList">{{ list1.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list1.2 }}</div>
-                </button>
-                <button class="boardSmall" name="btn6" value="6">
-                    <div class="smallTitle">
-                        <h4>6</h4>
-                        <div class="categoryList">[{{ list6.1 }}]</div>
-                        <div class="titleList">{{ list6.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list6.2 }}</div>
-                </button>
-            </div>
-            <div class="boardBig2">
-                <button class="boardSmall" name="btn2" value="2">
-                    <div class="smallTitle">
-                        <h4>2</h4>
-                        <div class="categoryList">[{{ list2.1 }}]</div>
-                        <div class="titleList">{{ list2.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list2.2 }}</div>
-                </button>
-                <button class="boardSmall" name="btn7" value="7">
-                    <div class="smallTitle">
-                        <h4>7</h4>
-                        <div class="categoryList">[{{ list7.1 }}]</div>
-                        <div class="titleList">{{ list7.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list7.2 }}</div>
-                </button>
-            </div>
-            <div class="boardBig3">
-                <button class="boardSmall" name="btn3" value="3">
-                    <div class="smallTitle">
-                        <h4>3</h4>
-                        <div class="categoryList">[{{ list3.1 }}]</div>
-                        <div class="titleList">{{ list3.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list3.2 }}</div>
-                </button>
-                <button class="boardSmall" name="btn8" value="8">
-                    <div class="smallTitle">
-                        <h4>8</h4>
-                        <div class="categoryList">[{{ list8.1 }}]</div>
-                        <div class="titleList">{{ list8.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list8.2 }}</div>
-                </button>
-            </div>
-            <div class="boardBig4">
-                <button class="boardSmall" name="btn4" value="4">
-                    <div class="smallTitle">
-                        <h4>4</h4>
-                        <div class="categoryList">[{{ list4.1 }}]</div>
-                        <div class="titleList">{{ list4.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list4.2 }}</div>
-                </button>
-                <button class="boardSmall" name="btn9" value="9">
-                    <div class="smallTitle">
-                        <h4>9</h4>
-                        <div class="categoryList">[{{ list9.1 }}]</div>
-                        <div class="titleList">{{ list9.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list9.2 }}</div>
-                </button></div>
-            <div class="boardBig5">
-                <button class="boardSmall2" name="btn5" value="5">
-                    <div class="smallTitle">
-                        <h4>5</h4>
-                        <div class="categoryList">[{{ list5.1 }}]</div>
-                        <div class="titleList">{{ list5.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list5.2 }}</div>
-                </button>
-                <button class="boardSmall2" name="btn10" value="10">
-                    <div class="smallTitle">
-                        <h4>10</h4>
-                        <div class="categoryList">[{{ list10.1 }}]</div>
-                        <div class="titleList">{{ list10.0 }}</div>
-                    </div>
-                        <div class="tagList">{{ list10.2 }}</div>
-                </button>
-            </div>
+            <div class="boardBig" id="postMother1"></div>
         </section>
     </form>
     <div class="blank2"></div>

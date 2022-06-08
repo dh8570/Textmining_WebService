@@ -59,9 +59,13 @@ def search_processing(request):
     search_model = BM25Okapi(token_corpus)
 
     score = list(search_model.get_scores(token_query))
+    print(token_corpus)
+    print(score)
     search_index = []
     for i in range(20):
         if max(score) == 0.0:
+            break
+        elif max(score) < 0.0:
             break
         else:
             index = score.index(max(score))

@@ -12,7 +12,7 @@
                 let new_div = document.createElement('div');
                 new_div.setAttribute('class', 'fifty');
                 new_div.style.width = bar_value + '%';
-                new_div.innerHTML = '<div>' + bar_key[0] + '</div>' + '<div>' + parseInt(bar_value[0]) + '%</div>';
+                new_div.innerHTML = '<font size="1">' + bar_key[0] + '</font>' + '<div>' + parseInt(bar_value[0]) + '%</div>';
                 progressMother.appendChild(new_div)
             } else {
                 for (var i = 0; i < bar_len; i++) {
@@ -25,7 +25,7 @@
                         new_div.setAttribute('class', 'twentyfive');
                     }
                     new_div.style.width = bar_value[i] + '%';
-                    new_div.innerHTML = '<div>' + bar_key[i] + '</div>' + '<div>' + parseInt(bar_value[i]) + '%</div>';
+                    new_div.innerHTML = '<font size="1">' + bar_key[i] + '</font>' + '<div>' + parseInt(bar_value[i]) + '%</div>';
                     progressMother.appendChild(new_div)
                 }
             }

@@ -51,10 +51,12 @@
                 new_button.innerHTML =
                     '<div class="smallTitle">' +
                         '<h4>' + (i+1) + '</h4>' +
-                        '<div class="categoryList">[' + post_list[i][2] + ']</div>' +
                         '<div class="titleList">' + post_list[i][1] + '</div>' +
                     '</div>' +
+                    '<div class="categoryAndTag">' +
+                    '<div class="categoryList">[' + post_list[i][2] + ']</div>' +
                     '<div class="tagList">' + post_list[i][3] + '</div>';
+                    '</div>';
                 postMother.appendChild(new_button);
             }
         }

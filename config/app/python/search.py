@@ -39,7 +39,7 @@ def progress_data(search_data):
         if category_data.count(category) != 0:
             category_amount[category] = category_data.count(category)
 
-    total_len = len(category_amount)
+    total_len = len(search_data)
     category_list = [(key, value/total_len * 100) for key, value in category_amount.items()]
     category_list.sort(key=lambda x: -x[1])
 
@@ -59,8 +59,6 @@ def search_processing(request):
     search_model = BM25Okapi(token_corpus)
 
     score = list(search_model.get_scores(token_query))
-    print(token_corpus)
-    print(score)
     search_index = []
     for i in range(20):
         if max(score) == 0.0:

@@ -215,3 +215,32 @@ background-color:pink;
     .line{
     width:100%; height:2px; background:#eee background-color:black;
     }
+div.popularBox {
+width:200px;
+height:550px;
+text-align:center;
+/*background-color:pink;*/
+position:absolute;
+top:310px;
+left:1550px;
+}
+div.popularTop {
+width:200px;
+height:30px;
+background-color:#ff00ff;
+color:white;
+text-align:center;
+border-width:1px;
+border-style:ridge;
+padding-top:10px;
+}
+div.popularTag {
+width:200px;
+height:35px;
+/*background-color:gray;*/
+text-align:center;
+border-width:1px;
+border-style:ridge;
+padding-top:15px;
+padding-right:-40px;
+}

@@ -132,7 +132,12 @@ div.smallTitle{
     background-color:pink;*/
     display:flex;
 }
-div.categoryList, div.titleList{
+div.titleList{
+    /*background-color:pink;*/
+    margin-top:15px;
+    margin-left:10px;
+}
+div.categoryList{
     /*background-color:pink;*/
     margin-top:15px;
     margin-left:10px;

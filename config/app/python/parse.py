@@ -1,12 +1,8 @@
 from eunjeon import Mecab
 import re
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.models import load_model
 from django.shortcuts import render
 import pandas as pd
-import gzip
-import pickle
-import os
+from ..apps import classificator
 
 
 class_dic = {
@@ -55,17 +51,6 @@ class_dic = {
 }
 
 
-def tokenizer(data):
-    max_len = 400
-
-    with gzip.open('./app/dataset/tokenizer_for_category.pickle', 'rb') as f:
-        tok = pickle.load(f)
-    data = tok.texts_to_sequences(data)
-    pre_data = pad_sequences(data, maxlen=max_len)
-
-    return pre_data
-
-
 def preprocessing(text):
     text = re.sub('\W', ' ', str(text))
     text = re.sub('\n|\t', ' ', text)
@@ -79,10 +64,32 @@ def preprocessing(text):
     return text
 
 
+def preprocessing_classification(text):
+    text = re.sub('\W', ' ', str(text))
+    text = re.sub('\n|\t', ' ', text)
+    text = re.sub('\s+', ' ', text)
+    text = text.strip()
+
+    return text
+
+
 def tagging(prep_list):
     word_list = pd.Series(prep_list)
     freq_words = word_list.value_counts().head(5)
     return freq_words
+
+
+def get_label(result):
+    result = result[0]['label']
+
+    if int(len(result)) == 8:
+        result = int(result[-2:])
+    else:
+        result = int(result[-1])
+
+    result_label = class_dic[result]
+
+    return result_label
 
 
 def get_and_processing(request):
@@ -98,22 +105,11 @@ def get_and_processing(request):
     for key in freq_words.keys():
         freq_text = freq_text + '#' + key + ' '
     freq_text = freq_text.strip()
-    print(freq_text)
 
-    # tokenizing for categorical
-    pre_data = tokenizer([preprocessed_data])
+    # classification works
+    result = classificator[0](preprocessing_classification(doc))
+    result_label = get_label(result)
 
-    # updating model
-    model = load_model('./app/model/model.h5')
-    decoder = load_model('./app/model/decoder.h5')
-
-    # predicting data
-    y_predict = model.predict(pre_data)
-    y_predict = decoder(y_predict)
-    result = list(y_predict.numpy()[0])
-    result_idx = result.index(max(result))
-
-    print(class_dic[result_idx])
-    context = {'title': title, 'document': doc, 'category': class_dic[result_idx], 'tags': freq_text}
+    context = {'title': title, 'document': doc, 'category': result_label, 'tags': freq_text}
     print(request.path)
     return render(request, './app/document_create.html', context)

@@ -69,7 +69,5 @@ def post_doc(request):
     context['progressbar_key'] = key
     context['progressbar_value'] = value
     context['progressbar_len'] = category_len
-    print(title_list)
-    print(list_len)
 
     return render(request, './app/document_list.html', context)

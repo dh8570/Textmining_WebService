@@ -1,4 +1,5 @@
 import sqlite3
+import pandas as pd
 from .list import post_doc
 from .parse import preprocessing
 import pickle
@@ -43,6 +44,34 @@ def search_model(doc, db_amount):
             pickle.dump(saved_corpus, f)
 
 
+def tagging(text):
+    word_list = pd.Series(text)
+    freq_words = word_list.value_counts()
+    return freq_words
+
+
+def save_tag(doc, db_amount):
+    text = preprocessing(doc)
+    tag_series = tagging(text)
+
+    if db_amount == 0:
+        with gzip.open('./app/dataset/tag_series.pickle', 'wb') as f:
+            pickle.dump(tag_series, f)
+    else:
+        with gzip.open('./app/dataset/tag_series.pickle', 'rb') as f:
+            saved_tag = pickle.load(f)
+
+        for tag_name, tag_amount in tag_series.items():
+            if tag_name not in list(saved_tag.keys()):
+                saved_tag[tag_name] = tag_amount
+            else:
+                saved_tag[tag_name] += tag_amount
+        saved_tag = saved_tag.sort_values(ascending=False)
+        print(saved_tag)
+        with gzip.open('./app/dataset/tag_series.pickle', 'wb') as f:
+            pickle.dump(saved_tag, f)
+
+
 def get(request):
     title = request.GET.get('title')
     doc = request.GET.get('document')
@@ -54,6 +83,7 @@ def get(request):
     else:
         db_amount = get_data_amount()
         search_model(doc, db_amount)
+        save_tag(doc, db_amount)
         insert_set = [db_amount, category, doc, title, tags]
 
         insert_data(insert_set)

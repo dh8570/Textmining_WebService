@@ -60,10 +60,22 @@
                 postMother.appendChild(new_button);
             }
         }
+
+        function create_issue_tag(tag_list) {
+            let tagMother;
+            for(var i = 0; i < 10; i++) {
+                tagMother = document.getElementById('tagMother');
+                let new_div = document.createElement('div');
+                new_div.setAttribute('class', 'popularTag');
+                new_div.innerHTML = tag_list[i][0];
+                tagMother.appendChild(new_div);
+            }
+        }
     </script>
 </head>
 <body onload="create_progressbar({{ progressbar_len }}, {{ progressbar_key }}, {{ progressbar_value }});
-                create_post({{ post_len }}, {{ post_list }});">
+                create_post({{ post_len }}, {{ post_list }});
+                create_issue_tag({{ tag_list }});">
     <div>
         <div class="pageMove">
             <a href="{% url 'write' %}" class="pageMoveInput">입력</a>
@@ -76,18 +88,8 @@
         </form>
     </div>
     <section>
-        <div class="popularBox">
-            <div class="popularTop">인기태그</div>
-            <div class="popularTag">#가</div>
-            <div class="popularTag">#나</div>
-            <div class="popularTag">#다</div>
-            <div class="popularTag">#라</div>
-            <div class="popularTag">#마</div>
-            <div class="popularTag">#바</div>
-            <div class="popularTag">#사</div>
-            <div class="popularTag">#아</div>
-            <div class="popularTag">#자</div>
-            <div class="popularTag">#차</div>
+        <div class="popularBox" id="tagMother">
+            <div class="popularTop">이슈 태그</div>
         </div>
     </section>
     <div>

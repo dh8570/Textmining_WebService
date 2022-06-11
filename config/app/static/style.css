@@ -1,3 +1,7 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+</style>
+
 body {
     margin: 0;
     padding: 0;
@@ -132,13 +136,27 @@ div.smallTitle{
     background-color:pink;*/
     display:flex;
 }
-div.categoryList, div.titleList{
+div.titleList{
     /*background-color:pink;*/
     margin-top:15px;
     margin-left:10px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:15px;
+}
+div.categoryList{
+    /*background-color:pink;*/
+    margin-left:10px;
+    padding-left:10px;
+    color:#ff8200;
 }
 div.tagList{/*
     background-color:pink;*/
+    padding-right:20px;
+    color:#0000ff;
+}
+div.categoryAndTag{
+    display:flex;
+    justify-content: space-between;
 }
 h4{
     width:10px;/*
@@ -215,3 +233,32 @@ background-color:pink;
     .line{
     width:100%; height:2px; background:#eee background-color:black;
     }
+div.popularBox {
+width:200px;
+height:550px;
+text-align:center;
+/*background-color:pink;*/
+position:absolute;
+top:310px;
+left:1550px;
+}
+div.popularTop {
+width:200px;
+height:30px;
+background-color:#ff00ff;
+color:white;
+text-align:center;
+border-width:1px;
+border-style:ridge;
+padding-top:10px;
+}
+div.popularTag {
+width:200px;
+height:35px;
+/*background-color:gray;*/
+text-align:center;
+border-width:1px;
+border-style:ridge;
+padding-top:15px;
+padding-right:-40px;
+}

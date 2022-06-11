@@ -43,11 +43,11 @@
     <connection id="7a692a1f-4355-4613-8886-a74f9bfaafb4" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="7a692a1f-4355-4613-8886-a74f9bfaafb4" dataset="main.app_document" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="60e52819-6ca4-45ec-9dba-a614ff5ac4c8" dataset="main.django_migrations" active-filter-id="" />
     <filter-actions connection-id="60e52819-6ca4-45ec-9dba-a614ff5ac4c8" dataset="main.app_document" active-filter-id="36b425c6-afe7-4909-b716-565f41676168">
       <filter id="36b425c6-afe7-4909-b716-565f41676168" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND" />
     </filter-actions>
-    <filter-actions connection-id="7a692a1f-4355-4613-8886-a74f9bfaafb4" dataset="main.app_document" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

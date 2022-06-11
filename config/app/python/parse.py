@@ -58,7 +58,7 @@ def preprocessing(text):
     text = text.strip()
 
     mecab = Mecab()
-    pos = ['NNG', 'NNP', 'NNBC', 'NP', 'SL']
+    pos = ['NNG', 'NNP', 'NP', 'SL']
     text = [morph for morph, tag in mecab.pos(text) if tag in pos]
 
     return text

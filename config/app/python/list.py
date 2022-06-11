@@ -1,5 +1,8 @@
 import sqlite3
 from .parse import class_dic
+import gzip
+import pickle
+import pandas as pd
 from django.shortcuts import render
 
 
@@ -55,6 +58,19 @@ def progress_data():
     return progressbar_key, progressbar_value
 
 
+def issue_tag(db_len):
+    if db_len != 0:
+        with gzip.open('./app/dataset/tag_series.pickle', 'rb') as f:
+            saved_tag = pickle.load(f)
+
+        top_tag = saved_tag.head(10)
+        tag_list = []
+        for tag_name, tag_amount in top_tag.items():
+            data = [tag_name, tag_amount]
+            tag_list.append(data)
+        return tag_list
+
+
 def post_doc(request):
     title_list = search_data()
     context = {}
@@ -69,5 +85,8 @@ def post_doc(request):
     context['progressbar_key'] = key
     context['progressbar_value'] = value
     context['progressbar_len'] = category_len
+
+    tag_list = issue_tag(list_len)
+    context['tag_list'] = tag_list
 
     return render(request, './app/document_list.html', context)

@@ -3,31 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>기사 입력</title>
+    <!-- 웹페이지의 이름-->
     <link rel="stylesheet" href="../../static/style.css">
+    <!--  css파일을 html과 연동하는 코드 -->
 </head>
 <body>
     <div class="pageMove">
+        <!--페이지 최상단 좌측에 위치한 입력페이지와 검색페이지로 이동할수 있는 버튼 2개를 생성하는 코드 -->
             <a href="{% url 'write' %}" class="pageMoveInput">입력</a>
             <a href="{% url 'list' %}" class="pageMoveSearch">검색</a>
     </div>
 
     <form class="box">
+        <!-- 기사 입력, 기사 제목 입력칸, 제출 버튼, 자동 카테고리 분류기, 자동 태깅, 분류 시작 버튼, 기사 내용 입력칸들을
+        전체적으로 페이지의 중앙에 위치시키기 위해 box class form에 생성   -->
         {% csrf_token %}
         <h1>기사 입력</h1>
         <div>
             <input type ="text" placeholder="기사 제목..." name="title" value="{{ title }}" required />
+            <!-- 텍스트 입력을 위해 text 타입으로 선언, placeholder 속성을 이용해 기사 제목을 입력하도록 유도  -->
             <input type="submit" value="제출" formaction="/success/" formmethod="get" onclick="set_att()" />
+             <!-- 버튼 형태로 만들기 위해 submit 타입으로 선언, value 속성을 이용해 제출 버튼임을 직관적으로 표시  -->
         </div>
         <p></p>
         <div>
             <input id="category" type="text" placeholder="자동 카테고리 분류기" name="category" value="{{ category }}" />
+            <!-- placeholder 속성을 이용해 분류된 카테고리가 생성될 공간임을 암시 -->
             <p></p>
             <input id="tags" type="text" placeholder="자동 태깅" name="tags" value="{{ tags }}" />
+            <!-- placeholder 속성을 이용해 태깅된 태그들이 생성될 공간임을 암시 -->
         </div>
         <p></p>
         <input type="submit" value="분류 시작" formaction="/write/get/" formmethod="get" onclick="remove_att()" />
+        <!-- 버튼 형태로 만들기 위해 submit 타입으로 선언, value 속성을 이용해 분류 시작 버튼임을 직관적으로 표시 -->
         <div>
             <textarea cols="106" rows="30" placeholder=" 기사 내용..." name="document" required>{{ document }}</textarea>
+            <!-- 장문의 텍스트를 입력하기위해 textarea 태그를 사용, placeholder 속성을 이용해 기사 내용을 입력할 공간임을 암시 -->
         </div>
     </form>
     <script>
@@ -42,6 +53,8 @@
         }
     </script>
     <div class="blank"></div>
+     <!-- textarea의 최하단부분이 웹페이지의 최하단과 일치하여 가시성이 좋지않은 문제를 해결하기 위해
+     textarea의 아래쪽에 blank,blank2 라는 내용 없이 크기만 존재하는 class를 삽입 -->
     <div class="blank"></div>
     <div class="blank2"></div>
 

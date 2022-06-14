@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8"/>
     <title>기사 검색</title>
+    <!-- 웹페이지의 이름-->
     <link rel="stylesheet" href="../../static/style.css">
+    <!--  css파일을 html과 연동하는 코드 -->
     <script>
         // 페이지 새로 고침 시, url parameter 값 제거
         history.replaceState({}, null, location.pathname);
@@ -78,30 +80,41 @@
                 create_issue_tag({{ tag_list }});">
     <div>
         <div class="pageMove">
+            <!--페이지 최상단 좌측에 위치한 입력페이지와 검색페이지로 이동할수 있는 버튼 2개를 생성하는 코드-->
             <a href="{% url 'write' %}" class="pageMoveInput">입력</a>
             <a href="{% url 'list' %}" class="pageMoveSearch">검색</a>
         </div>
         <form class="box2">
             <a href="{% url 'list' %}" class="pageMoveSelf"><h1>기사 검색</h1></a>
             <input type ="text" placeholder="기사 내용..." name="keyword">
+            <!-- 텍스트 입력을 위해 text 타입으로 선언, placeholder 속성을 이용해 기사 내용을 입력하도록 유도  -->
             <input type ="submit" value="검색" formaction="/search/" formmethod="get">
+             <!-- 버튼 형태로 만들기 위해 submit 타입으로 선언, value 속성을 이용해 검색 버튼임을 직관적으로 표시  -->
         </form>
     </div>
     <section>
         <div class="popularBox" id="tagMother">
             <div class="popularTop">이슈 태그</div>
+             <!-- 우측에 보이는 이슈태그를 선언하는 코드  -->
         </div>
     </section>
     <div>
         <div class="bar" id="progressMother"></div>
+        <!-- 중간에 보이는 프로그래스바를 선언하는 코드  -->
     </div>
     <div class="blank"></div>
+    <!-- 게시글 목록을 중앙 아래에 위치시키기 위해 위쪽에 내용은 없고 크기만 존재하는 blank라는 class를 선언 -->
     <form action="/search/post/" method="get">
         <section class="board">
+            <!-- 전체 게시글의 영역을 선언하는 코드  -->
             <div class="boardTop"> 게시글 </div>
+            <!-- 게시글 최상단에 게시글임을 나타내는 텍스트와 함께 영역을 지정  -->
             <div class="boardBig" id="postMother1"></div>
+            <!-- 게시글 하나하나를 선언  -->
         </section>
     </form>
     <div class="blank2"></div>
+<!-- 게시판의 최하단부분이 웹페이지의 최하단과 일치하여 가시성이 좋지않은 문제를 해결하기 위해
+     게시판의 아래쪽에 blank2 라는 내용 없이 크기만 존재하는 class를 삽입 -->
 </body>
 </html>

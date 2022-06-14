@@ -1,7 +1,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 </style>
-
+/*게시글제목에 Noto.Sans.KR 폰트를 적용하기 위한 코드*/
 body {
     margin: 0;
     padding: 0;
@@ -16,9 +16,10 @@ form.box {
     top:25%;
     left:-2.4%;
     transfrom:translate(-50%,-50%);
-    text-align: center;/*
-    background-color:pink;*/
+    text-align: center;
 }
+/* 기사입력 페이지의 요소들을 중앙에 위치시키기 위한 코드 */
+
 form.boxContent {
     width: 500px;
     position: absolute;
@@ -35,6 +36,7 @@ form.box2 {
     transfrom:translate(-50%,-50%);
     text-align: center;
 }
+/* 기사검색 페이지의 기사내용 입력칸 */
 form.box h1{
     font-weight:normal;
 }
@@ -47,24 +49,32 @@ form.box input[name=title]   {
     padding:10px;
     border-radius:0 0 0 0;
 }
+/* 기사입력 페이지의 기사제목 입력칸*/
+
 form.box input[name=category]   {
     background-color:#fff;
     width:740px;
     padding:10px;
     border-radius:0 0 0 0;
 }
+/* 기사입력 페이지의 자동 카테고리 출력칸 */
+
 form.box input[name=tags]   {
     background-color:#fff;
     width:740px;
     padding:10px;
     border-radius:0 0 0 0;
 }
+/* 기사입력 페이지의 자동 태깅 출력칸 */
+
 form.box2 input[type=text]   {
     background-color:#fff;
     width:350px;
     padding:10px;
     border-radius:25px 0 0 25px;
 }
+/* 기사검색 페이지의 기사 내용 입력칸,border-radius:25px 0 0 25px 코드를 통해 11시,7시 방향의 각을 둥글게 디자인 */
+
 form.box input[type=submit] {
     width:100px;
     background-color:pink;
@@ -73,6 +83,8 @@ form.box input[type=submit] {
     border:none;
     margin-left:-6px;
 }
+/* 기사입력 페이지의 분류시작,제출버튼  */
+
 form.box2 input[type=submit] {
     width:100px;
     background-color:pink;
@@ -80,32 +92,39 @@ form.box2 input[type=submit] {
     border-radius:0 25px 25px 0;
     border:none;
     margin-left:-6px;
-}
+}}
+/* 기사검색 페이지의 검색버튼, border-radius:0 25px 25px 0 코드를 통해 1시, 5시 방향의 각을 둥글게 디자인  */
+
 textarea::placeholder{
 font-weight:bold;
 }
+/* 기사입력 페이지의 placeholder로 출력되는 텍스트의 폰트를 bold로 지정  */
+
 
 textarea {
 resize:none;
-/*border:none;*/
 }
+/* 기사입력 페이지의 textarea 크기를 사용자가 마음대로 조절하는것을 방지하기위해 사이즈 조절을 금지  */
 
 div.blank {
-    /*background-color:gray;*/
     width:1920px;
     height:400px;
 }
+/* 레이아웃 위치 조절을 위해 내용 없이 크기만 존재하는 class  */
+
 div.blank2 {
-    /*background-color:gray;*/
     width:1920px;
     height:200px;
 }
+/* 레이아웃 위치 조절을 위해 내용 없이 크기만 존재하는 class  */
+
 section.board {
     background-color:pink;
     width:1004px;
     height:400px;
     margin-left:410px;
 }
+/* 전체 게시판 영역을 지정  */
 
 div.boardTop {
     background-color:pink;
@@ -116,12 +135,16 @@ div.boardTop {
     text-align:center;
     padding-top: 15px;
 }
+/* 게시판 상단 게시글이라는 텍스트가 위치한 영역을 설정  */
+
 div.boardBig1,div.boardBig2, div.boardBig3,div.boardBig4,div.boardBig5 {
     width:1004px;
     height:70px;
     display:flex;
     justify-content:space-between;
 }
+/* 2개 영역의 게시글 공간을 지정하여 display:flex 코드를 통해 가로 정렬  */
+
 div.boardSmall{
     width:502px;
     height:70px;
@@ -131,37 +154,47 @@ div.boardSmall{
     justify-content:space-between;
     box-sizing:content-box;
 }
+/* 게시글 한개 영역의 공간을 지정,border-width 속성을 통해 테두리 굵기 지정,border-style 속성을 통해 테두리 스타일 지정
+   display 속성을 통해 내부 요소들 가로 정렬, justify-content 속성을 이용해 내부 요소들 양쪽끝 배치*/
+
 div.smallTitle{
-    width:486px;/*
-    background-color:pink;*/
+    width:486px;
     display:flex;
 }
+/* 게시글 숫자 및 제목이 위치할 공간을 지정, display 속성을 이용해 가로정렬  */
+
 div.titleList{
-    /*background-color:pink;*/
     margin-top:15px;
     margin-left:10px;
     font-family: 'Noto Sans KR', sans-serif;
     font-size:15px;
 }
+/* 게시글 제목, font-family속성을 이용해 NotoSansKR 폰트 적용,font-size 속성을 이용해 크기 적용  */
+
 div.categoryList{
-    /*background-color:pink;*/
     margin-left:10px;
     padding-left:10px;
     color:#ff8200;
 }
-div.tagList{/*
-    background-color:pink;*/
+/* 게시글 카테고리, margin,padding 속성을 혼합해 미세한 위치 조절, color 속성을 이용해 노란색 텍스트 지정  */
+
+div.tagList{
     padding-right:20px;
     color:#0000ff;
 }
+/* 게시글 태그, padding-right속성을 이용해 왼쪽으로 20px이동, color 속성을 이용해 파란색 텍스트 지정   */
+
 div.categoryAndTag{
     display:flex;
     justify-content: space-between;
 }
+/* display 속성을 이용해 게시글 카테고리와 태그를 가로 정렬, justify-content 속성으로 좌우 끝 배치  */
+
 h4{
-    width:10px;/*
-    background-color:black;*/
+    width:10px;
 }
+/* 게시글 숫자 크기를 지정  */
+
 div.boardSmall2{
     width:502px;
     height:70px;
@@ -170,16 +203,22 @@ div.boardSmall2{
     display:flex;
     justify-content:space-between;
 }
+/* 게시글 최하단의 아래쪽 border 값을 0으로 하여 전체 게시판 영역을 초과하지 못하게 하기위해 맨아래 게시판을 따로 선언 */
+
 
 div.boardTop:hover, form.box2 input[type=submit]:hover,form.box input[type=submit]:hover,div.boardSmall:hover,div.boardSmall2:hover,a.pageMoveSearch:hover, a.pageMoveInput:hover{
 background:orange;
 cursor:pointer;
 }
+/* 해당 class에 마우스를 갓다댈시 색깔을 오렌지색으로 변경, 커서를 손가락모양으로 변경  */
+
 div.pageMove{
 width:1920px;
 height:50px;
 display:flex;
 }
+/* 좌측 최상단의 입력,검색 페이지 버튼이 위치할 공간을 지정하고 버튼들을 가로 정렬  */
+
 a.pageMoveSearch, a.pageMoveInput{
 width:200px;
 height:50px;
@@ -192,11 +231,15 @@ border-width:1px;
 border-style:ridge;
 margin:10px;
 }
+/* 좌측 최상단의 입력,검색 페이지, a태그 사용으로 인해 생기는 밑줄을 제거하기위해 text-decoration 속성 사용   */
+
 a.pageMoveSelf{
 text-decoration:none;
 color:black;
 background-color:pink;
 }
+/* 자기 자신 페이지로 이동하는 버튼  */
+
 .bar {
         width: 600px;
         height: 50px;
@@ -210,6 +253,12 @@ background-color:pink;
         display:flex;
 
     }
+/* 기사 검색 페이지의 프로그래스바, 전체 배경을 green으로 첫번째 바와 색상을 같게 하여 한개의 fifty 클래스의 1시,5시방향이 둥글어서 두번째 바 사이에 여백이 보이는것을 방지함
+ color속성을 이용해 텍스트 색상 지정, diplay속성을 이용해 바들을 가로정렬 */
+
+
+
+
     .fifty {
         width: 50%;
         height: 100%;
@@ -220,6 +269,8 @@ background-color:pink;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
     }
+/* 프로그래스바의 비중이 제일 큰 영역, 의도적으로 배경과 동일한 색 지정,   */
+
     .twentyfive {
         width: 25%;
         height: 100%;
@@ -229,6 +280,9 @@ background-color:pink;
         border-width:0px 1px 0px 1px;
         border-color:orange;
     }
+/* 프로그래스바의 비중이 중간인 영역, border-style을 사용하여 각각의 twntyfive바들을 구분함, border-width를 사용하여 3시,9시에만 테두리를 지정함
+  바와 비슷한 색상의 오렌지를 선정함*/
+
     .ten {
         width: 10%;
         height: 100%;
@@ -237,18 +291,19 @@ background-color:pink;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
     }
-    .line{
-    width:100%; height:2px; background:#eee background-color:black;
-    }
+/* 프로그래스바의 비중이 제일 적은 영역,border속성을이용해 1시,5시방향을 둥글게함  */
+
+
 div.popularBox {
 width:200px;
 height:550px;
 text-align:center;
-/*background-color:pink;*/
 position:absolute;
 top:310px;
 left:1550px;
 }
+/* 검색페이지 최우측의 전체 이슈 태그칸 위치 지정   */
+
 div.popularTop {
 width:200px;
 height:30px;
@@ -259,13 +314,15 @@ border-width:1px;
 border-style:ridge;
 padding-top:10px;
 }
+/* 태그칸 최상단의 이슈 태그 헤더 영역 지정  */
+
 div.popularTag {
 width:200px;
 height:35px;
-/*background-color:gray;*/
 text-align:center;
 border-width:1px;
 border-style:ridge;
 padding-top:15px;
 padding-right:-40px;
 }
+/* 태그칸 세부 영역 지정  */

@@ -3,10 +3,10 @@ import pickle
 import gzip
 
 
-classificator = []
+classificator = []  # BERT 모델의 pipeline 모듈을 저장할 리스트
 
 
-class AppConfig(AppConfig):
+class AppConfig(AppConfig):  # 최적화 작업: 서버 부트 시 BERT 모델 로딩
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'app'
 

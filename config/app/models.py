@@ -1,6 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+# DB 테이블 정의
 class Document(models.Model):
     title = models.CharField(max_length=50, null=True, blank=True)
     category = models.CharField(max_length=10, null=True, blank=True)

@@ -3,10 +3,11 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from .models import Document
 
-# Create your views here.
+
 class AppListView(ListView):
     # 어떤 모델(테이블)에 대한 제너릭 뷰인지 지정
     model = Document
+
 
 class AppCreateView(CreateView):
     model = Document

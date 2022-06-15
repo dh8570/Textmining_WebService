@@ -12,9 +12,9 @@ urlpatterns = [
     # name : 결과 페이지로 보여 줄 템플릿 파일에서 해당 URL을 호출할 때 쓰는 별칭
     path('', post_doc, name='list'),    # 주소/app/ 로 이동
     path('write/', AppCreateView.as_view(), name='write'),  # 주소/app/write/ 로 이동
-    path('write/get/', get_and_processing),
-    path('success/', get),
-    path('search/', search_processing),
-    path('search/post/', search_post_output),
-    path('search/category/', category_search_processing),
+    path('write/get/', get_and_processing),  # 주소/app/write/get/ 로 이동
+    path('success/', get),  # 주소/app/success/ 로 이동
+    path('search/', search_processing),  # 주소/app/search/ 로 이동
+    path('search/post/', search_post_output),   # 주소/app/search/post/ 로 이동
+    path('search/category/', category_search_processing),   # 주소/app/search/category/ 로 이동
 ]
